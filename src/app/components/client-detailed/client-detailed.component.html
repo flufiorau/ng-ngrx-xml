@@ -1,0 +1,15 @@
+<mat-card *ngIf="selectedClient" class="client-card">
+  <mat-card-header>
+    <img alt="Photo of {{selectedClient.fields.general.firstName}}"
+         mat-card-avatar src="{{selectedClient.fields.general.avatar}}">
+    <mat-card-title>
+      {{selectedClient.fields.general.firstName}} {{selectedClient.fields.general.lastName}}
+    </mat-card-title>
+    <mat-card-subtitle>{{selectedClient.fields.job.title}} <br> {{selectedClient.fields.job.company}} <br>
+      <small>{{selectedClient.fields.address.country}}, {{selectedClient.fields.address.city}},
+        {{selectedClient.fields.address.street}}, {{selectedClient.fields.address.zipCode}}</small>
+      <small>{{selectedClient.fields.contact.email}}, {{selectedClient.fields.contact.phone}}</small>
+    </mat-card-subtitle>
+
+  </mat-card-header>
+</mat-card>

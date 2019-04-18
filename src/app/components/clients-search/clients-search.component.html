@@ -1,0 +1,10 @@
+<form class="client-form">
+  <mat-form-field class="client-full-width">
+    <input [formControl]="clientSearchControl" aria-label="search in clients" matInput
+           placeholder="search in clients">
+    <button mat-button *ngIf="clientSearchControl.value" matSuffix mat-icon-button aria-label="Clear"
+            (click)="clientSearchControl.setValue('')">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</form>

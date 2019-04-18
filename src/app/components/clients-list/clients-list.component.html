@@ -1,0 +1,9 @@
+<mat-list>
+  <mat-list-item (click)="showClientDetail(client.id)"
+                 *ngFor="let client of ((searchClients | async) || (clients | async))">
+    <img [src]="client.fields.general.avatar" alt="avatar" class="client-option-img" height="25" mat-list-icon>
+    <h4 mat-line>{{client.fields.general.firstName}} {{client.fields.general.lastName}}</h4>
+    <small mat-line>{{client.fields.job.title}} </small>
+  </mat-list-item>
+  <mat-list-item *ngIf="(searchClients | async)?.length === 0">sorry but nothing found</mat-list-item>
+</mat-list>

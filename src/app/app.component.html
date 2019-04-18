@@ -1,0 +1,29 @@
+<div [class.client-is-mobile]="mobileQuery.matches" class="client-container">
+  <mat-toolbar class="client-toolbar" color="primary">
+    <button (click)="sideNav.toggle()" mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="client-app-name">{{title}}</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container [style.marginTop.px]="mobileQuery.matches ? 50 : 0"
+                         class="client-sidenav-container">
+    <mat-sidenav #sideNav [fixedInViewport]="mobileQuery.matches"
+                 [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [opened]="sidenavOpened" fixedTopGap="50">
+      <mat-grid-list class="sidenav-side-grid" cols="1" rowHeight="9vh">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <app-clients-search></app-clients-search>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="9">
+          <app-clients-list (click)="mobileQuery.matches ? sideNav.toggle() : ''"></app-clients-list>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <app-client-detailed></app-client-detailed>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
